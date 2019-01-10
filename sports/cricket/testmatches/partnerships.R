@@ -20,7 +20,7 @@ print(max(df.testmatch$Partnership.Career.End))
 #
 #--Work with 2008 start partnership
 #
-df.testmatch<-df.testmatch[which(df.testmatch$Partnership.Career.Start==2008),]
+df.testmatch<-df.testmatch[which(df.testmatch$Partnership.Career.Start==2009),]
 length(unique(df.testmatch$Country ))
 
 
@@ -28,7 +28,7 @@ length(unique(df.testmatch$Country ))
 library(plyr)
 count(df.testmatch,"Country")
 
-#--count number of partnerships 
+#--count number of total partners from country 
 count(df.testmatch,"Country") %>% arrange(desc(freq))
 
 
