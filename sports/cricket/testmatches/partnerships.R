@@ -26,14 +26,16 @@ length(unique(df.testmatch$Country ))
 
 #get count per country
 library(plyr)
-count(df.testmatch,"Country")
+count(df.testmatch,Country)
 
 #--count number of total partners from country 
-count(df.testmatch,"Country") %>% arrange(desc(freq))
+as.data.frame(count(df.testmatch,Country)) %>% arrange(desc(n))
 
 
 #https://stackoverflow.com/a/1661144/2740831
 
 #--get number of partnerships per country
 
-as.data.frame(aggregate(df.testmatch$Number.Of.Partnerships ~ df.testmatch$Country , data=df.testmatch ,sum)) %>% arrange(desc(df.testmatch$Number.Of.Partnerships))
+as.data.frame(aggregate(df.testmatch$Number.Of.Partnerships ~ df.testmatch$Country , data=df.testmatch ,sum))  %>% 
+rename(Country="df.testmatch$Country",TotalPartnerships="df.testmatch$Number.Of.Partnerships" ) %>%
+arrange(desc(TotalPartnerships))
