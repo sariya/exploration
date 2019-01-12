@@ -16,7 +16,7 @@ print(dim(df.imdb)) ##5043 rows and 28 columns
 ##get counts of title year
 count(df.imdb,"title_year")
 
-which(is.na(df.imdb$title_year))
+which(is.na(df.imdb$title_year))  ##find movies with missing year
 
 df.imdb_filtered<-df.imdb[-c(which(is.na(df.imdb$title_year))),] ##filter movies no title year
 
@@ -85,6 +85,15 @@ as.data.frame(count(df.imdb_filtered,"language")) %>% arrange(freq)
 
 
 ##
+##work with genres
 ##
+
+genres_from_df<-unlist(strsplit(as.character(df.imdb_filtered$genres),split="|",fixed=TRUE)) ##https://stackoverflow.com/a/30842369/2740831
+print(length(unique(genres_from_df)))
+count(genres_from_df) %>% arrange(desc(freq)) ## get count of genres
+
 ##
+##Prepare word cloud of genres
+##
+
 
