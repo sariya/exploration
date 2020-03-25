@@ -45,7 +45,8 @@ axis.text.y = element_text(size=10, face="bold"),
 axis.text.x = element_text(size=10, face="bold")
 )
 
-grid.arrange(cases, deaths, ncol=2)
+
+
 
 
 
